@@ -14,8 +14,7 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
 checkout scm
 
 	stage 'Build'
-		bat """
-		ng build
+		bat "ng build"
 	stage 'Publish'
 		octo pack --id OctoTest.WebTest --version ${version} --basePath dist/ --format zip
 		octo push --package OctoTest.WebTest.${version}.zip --server %OctoServer% --apikey API-%OctoAPIKey%
