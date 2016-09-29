@@ -15,7 +15,7 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
 
 	stage 'Build'
 		bat """
-		npm install -g npm
+		npm -v
 		npm install
 		ng build
 		"""
