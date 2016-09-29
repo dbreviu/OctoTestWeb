@@ -14,6 +14,7 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
 		checkout scm
 
 	stage 'Install'
+		bat "npm -v"
 		bat "npm install"
 	stage 'Build'
 		bat "ng build"
