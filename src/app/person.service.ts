@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Person } from './Person';
 import { PEOPLE } from './mock-people';
-import { Jsonp, URLSearchParams } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class PersonService {
 
-constructor(private jsonp: Jsonp) {}
+constructor(private http: Http) {}
   search (term: string) {
 
     let personUrl = "http://danboctotestdev.azurewebsites.net/api/person"
 
     let params = new URLSearchParams('name=' + term);
     
-    return this.jsonp.get(personUrl,{search:params})
+    return this.http.get(personUrl,{search:params})
     .map(res=><Person[]>res.json()[1])
   }
 
