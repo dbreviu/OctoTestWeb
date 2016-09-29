@@ -12,7 +12,7 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
 
 	stage 'Checkout'
 		checkout scm
-		bat "git clean -fdx"
+
 	stage 'Install'
 		bat "npm install"
 	stage 'Build'
