@@ -1,3 +1,7 @@
-<h1>
-  {{title}}
-</h1>
+<ng-container *ngFor="let person of people;let i=index">
+  <div class="card">
+    <div class="name">{{person.name}}</div>
+    <div class="region">{{person.city}}, {{person.state}}</div>
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </div>
+</ng-container>

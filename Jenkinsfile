@@ -11,6 +11,7 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
                     variable: 'OctoAPIKey']]) {
 
 	stage 'Checkout'
+		bat "del *.zip"
 		checkout scm
 
 	stage 'Install'
