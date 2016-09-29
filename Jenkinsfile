@@ -13,11 +13,10 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
 	stage 'Checkout'
 		checkout scm
 
+	stage 'Install'
+		bat "npm install"
 	stage 'Build'
-		bat """
-		npm install
-		ng build
-		"""
+		bat "ng build"
 	stage 'Publish'
 		bat """
 		octo pack --id OctoTest.WebTest --version ${version} --basePath dist/ --format zip
