@@ -23,7 +23,7 @@ withCredentials([[$class: 'StringBinding', credentialsId: 'OctoAPIKey',
 		"""
 	stage 'Publish'
 		bat """
-		octo pack --id OctoTest.WebTest --version ${version} --basePath dist/ --format zip
+		octo pack --id OctoTest.WebTest --version ${version} --basePath /dist --format zip
 		octo push --package OctoTest.WebTest.${version}.zip --server %OctoServer% --apikey API-%OctoAPIKey%
 		echo "creating release"
 		octo create-release --project OctoTestWeb --version ${version} --packageversion ${version} --server %OctoServer% --apikey API-%OctoAPIKey% 
