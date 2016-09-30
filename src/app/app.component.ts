@@ -18,12 +18,20 @@ export class AppComponent {
  private searchTermStream = new Subject<string>();
 
  search(term:string) {
+   if(term.length > 0)
+   {
    this.searchTermStream.next(term);
+   }
+   else
+   {
+     this.searchTermStream.next("fsdlksdflk")
+   }
  }
 
- people: Observable<Person[]> = this.searchTermStream.debounceTime(300)
+ people = this.searchTermStream.debounceTime(300)
     .distinctUntilChanged()
     .switchMap((term: string) => this.personService.search(term));
+    
 /*
  getPeople():void{
    this.personService.getPeople().then(people=>this.people=people);

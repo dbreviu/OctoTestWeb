@@ -1,9 +1,10 @@
 <input #term (keyup)="search(term.value)"/>
-
+<br/><br/>
 <ng-container *ngFor="let person of people | async">
   <div class="card">
-    <div class="name">{{person.name}}</div>
+    <div class="name">{{person.firstName}} {{person.lastName}}</div>
     <div class="region">{{person.city}}, {{person.state}}</div>
     <i class="fa fa-user" aria-hidden="true"></i>
   </div>
+  
 </ng-container>

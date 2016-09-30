@@ -9,15 +9,18 @@ export class PersonService {
 constructor(private http: Http) {}
   search (term: string) {
 
+
     let personUrl = "http://danboctotestdev.azurewebsites.net/api/person"
 
     let params = new URLSearchParams('name=' + term);
     
-    return this.http.get(personUrl,{search:params})
-    .map(res=><Person[]>res.json()[1])
-  }
+   return this.http.get(personUrl,{search:params})
+     .map(response => response.json());
+    //  .map(response => response.json().data);
 
+  }
+/*
   getPeople(): Promise<Person[]> {
     return Promise.resolve(PEOPLE);
-  }
+  }*/
 } 
