@@ -1,7 +1,7 @@
 <input #term (keyup)="search(term.value)"/>
 <br/><br/>
-<ng-container *ngFor="let person of people | async">
-  <div class="card">
+<ng-container *ngFor="let person of people | async" >
+  <div class="card" [@flyInOut]="active">
     <div class="name">{{person.firstName}} {{person.lastName}}</div>
     <div class="region">{{person.city}}, {{person.state}}</div>
     <i class="fa fa-user" aria-hidden="true"></i>
