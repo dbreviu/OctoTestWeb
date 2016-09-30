@@ -1,5 +1,9 @@
-<input #term (keyup)="search(term.value)"/>
-<br/><br/>
+<div class="searchbox">
+<input #term (keyup)="search(term.value)" placeholder="Customer Name"/>
+<input #phone (keyup)="search(phone.value)" placeholder="Customer Phone"/>
+
+</div>
+<br/><br/><br/><br/>
 <ng-container *ngFor="let person of people | async" >
   <div class="card" [@flyInOut]="active">
     <div class="name">{{person.firstName}} {{person.lastName}}</div>

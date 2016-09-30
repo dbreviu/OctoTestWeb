@@ -12,8 +12,10 @@ constructor(private http: Http) {}
 
     let personUrl = "http://danboctotestdev.azurewebsites.net/api/person"
 
-    let params = new URLSearchParams('name=' + term);
+    let params = new URLSearchParams()
+    params.set('name',term);
     
+
    return this.http.get(personUrl,{search:params})
      .map(response => response.json());
     //  .map(response => response.json().data);

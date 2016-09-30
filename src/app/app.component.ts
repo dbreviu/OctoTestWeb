@@ -41,7 +41,7 @@ export class AppComponent {
  constructor(private personService: PersonService) { }
  private searchTermStream = new Subject<string>();
 
- search(term:string) {
+ search(term:string, phone:string) {
     
 
    if(term.length > 0)
