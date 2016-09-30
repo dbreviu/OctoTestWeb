@@ -15,17 +15,18 @@ animations: [
     state('in', style({transform: 'scale(0)'})),
     transition('void => *', [
       style({transform: 'scale(0)'}),
-      animate(300, keyframes([
-        style({opacity: 0, transform: 'scale(0)', offset: 0}),
+      animate(600, keyframes([
+        style({opacity: 0, transform: 'scale(0)', offset: 0.4}),
         style({opacity: 1, transform: 'scale(1.3)',  offset: 0.7}),
         style({opacity: 1, transform: 'scale(1)',     offset: 1.0})
       ]))
     ]),
     transition('* => void', [
       animate(300, keyframes([
-        style({opacity: 1, transform: 'translateY(100%)',     offset: 0}),
-        style({opacity: .5, transform: 'translateY(150px)', offset: 0.4}),
-        style({opacity: .2, transform: 'translateY(300px)',  offset: 1.0})
+        style({opacity: .8, transform: 'translateY(25px)'}),
+        style({opacity: .7, transform: 'translateY(100px)'}),
+        style({opacity: .5, transform: 'translateY(150px)'}),
+        style({opacity: .3, transform: 'translateY(300px)'})
        /* style({opacity: 1, transform: 'scale(1)', offset: 0}),
         style({opacity: .5, transform: 'scale(.5)',  offset: 0.3}),
         style({opacity: 0, transform: 'scale(0)',     offset: 1.0})*/
@@ -41,13 +42,16 @@ export class AppComponent {
  private searchTermStream = new Subject<string>();
 
  search(term:string) {
+    
+
    if(term.length > 0)
    {
    this.searchTermStream.next(term);
    }
    else
    {
-     this.searchTermStream.next("fsdlksdflk")
+    
+     this.searchTermStream.next("voidInput")
    }
  }
 
